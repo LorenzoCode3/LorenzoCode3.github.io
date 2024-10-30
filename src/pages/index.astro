@@ -1,0 +1,71 @@
+---
+import Layout from "../layouts/Layout.astro";
+import WorksCard from "../components/WorksCard.astro";
+import WorksCardIcons from "../components/WorksCardIcons.astro";
+---
+
+<Layout title="Su di me"> <!-- About me -->
+    <WorksCardIcons />
+
+    <div class="container">
+        <div>
+            <h1 style="text-align: center; margin-bottom: 1%; margin-top: 3%; font-size: 350%;">Ciao!</h1>
+            <div>
+                <p style="text-align: center; margin-bottom: 10%; font-size: 150%;">
+                    Mi chiamo Lorenzo, sono un <br />programmatore e un 3D
+                    artist. <br />Studio ingegneria informatica a <br
+                    />Cagliari.
+                </p>
+            </div>
+        </div>
+        <h1>In primo piano:</h1>
+        <div class="grid">
+            <WorksCard title="#36DaysOfType art challenge" date="2023" description="Raccolta degli artwork realizzati in Blender per la challenge, un render al giorno per 36 giorni." link="/36DaysChallenge2023/" linkLabel="Vai alla pagina" icon="#palette"/>
+            <WorksCard title="Game of life in pygame" date="2024" description="Script python che implementa un'interfaccia visuale per il 'game of life' utilizzando la libreria pygame." link="https://github.com/LorenzoCode3/GameOfLife-pygame" linkLabel="Vai alla repository" icon="#codeSlash"/>
+        </div>
+        <div>
+            <h1>Le mie skills:</h1>
+            <div class="grid">
+                <article>
+                    <h4>Tecnologie Front-End</h4> <!-- Front-End Technologies -->
+                    <p>
+                        Astro <br />
+                        Bootstrap <br />
+                        Pico.css <br />
+                        Html <br />
+                        Css <br />
+                        Javascript
+                    </p>
+                </article>
+                <article>
+                    <h4>Tecnologie Back-End</h4> <!-- Back-End Technologies -->
+                    <p>
+                        <!-- Node.js <br /> -->
+                        PHP
+                    </p>
+                    <h4>Database</h4> <!-- Databases -->
+                    <p>
+                        MySQL
+                    </p>
+                    <h4>Design e Modellazione 3D</h4> <!-- Design and 3D Modeling -->
+                    <p>
+                        Blender
+                    </p>
+                </article>
+                <article>
+                    <h4>Linguaggi di Programmazione</h4> <!-- Programming Languages -->
+                    <p>
+                        Python (con varie librerie) <br />
+                        C <br />
+                        Java <br />
+                        <!-- C# (con Unity) -->
+                    </p>
+                    <h4>Sviluppo di Videogiochi</h4> <!-- Game Development -->
+                    <p>
+                        Unity
+                    </p>
+                </article>
+            </div>
+        </div>
+    </div>
+</Layout>

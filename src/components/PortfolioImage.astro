@@ -1,0 +1,11 @@
+---
+const { srcPath, altText } = Astro.props;
+---
+
+<style>
+    img{
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+</style>
+    <img src={srcPath} alt={altText} />

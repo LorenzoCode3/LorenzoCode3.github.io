@@ -1,0 +1,32 @@
+---
+const { title, date, description, link, linkLabel, icon } = Astro.props;
+---
+
+<!-- icons values: #palette, #codeSlash -->
+<article>
+    <nav>
+        <ul>
+            <li>
+                <svg width="3.3em" height="3.3em" style="padding: 10%;"><use xlink:href={icon}></use></svg> <!--<svg style="background-color: #13171f; border-radius: 10px;">-->
+            </li>
+            <li><h3 style="margin-bottom: 0;">{title}</h3></li>
+        </ul>
+    </nav>
+    <p>
+        {date}
+    </p>
+    <hr>
+    <p>
+        {description}
+    </p>
+    <div>
+        <a href={link}>
+            {linkLabel}
+            <svg width="1em" height="1em"
+                ><use xlink:href="#chevron-right"></use></svg
+            >
+        </a>
+    </div>
+</article>
+<!--
+<fieldset role="group"></fieldset> -->

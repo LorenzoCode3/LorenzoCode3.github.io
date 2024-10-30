@@ -1,0 +1,31 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactCard from "../components/ContactCard.astro";
+import ContactCardIcons from "../components/ContactCardIcons.astro";
+---
+
+<Layout title="Contatti">
+    <ContactCardIcons />
+
+    <div class="container">
+        <h2>Link Professionali:</h2> <!-- Professional Links: -->
+        <div class="grid">
+            <ContactCard title="Email" link="mailto:lorenzo.era233.w@gmail.com" icon="#mail"/>
+            <ContactCard title="Github" link="https://github.com/LorenzoCode3" icon="#github"/>
+            <!--
+            <ContactCard title="Linkedin" link="https://it.linkedin.com/in/lorenzo-era-187414243" icon="#linkedin"/>
+            -->
+            <div />
+            <div />
+            <div />
+        </div>
+        <h2 style="margin-top: 30px;">Link ai Social:</h2> <!-- Social Links: -->
+        <div class="grid">
+            <ContactCard title="Facebook" link="https://www.facebook.com/lorenzo.era.3" icon="#facebook"/>
+            <ContactCard title="Instagram" link="https://www.instagram.com/lorenzoera_/" icon="#instagram"/>
+            <div />
+            <div />
+            <div />
+        </div>
+    </div>
+</Layout>

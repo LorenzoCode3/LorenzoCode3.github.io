@@ -1,0 +1,50 @@
+---
+const { title, link, icon } = Astro.props;
+---
+
+
+
+<article>
+    <nav>
+        <ul>
+            <li style="padding-top: 0; padding-bottom: 0;"><a href={link}>
+                <svg width="2em" height="2em">
+                    <title>{title}</title>
+                    <use xlink:href={icon}></use>
+                </svg>
+            </a></li>
+        <li style="padding-top: 0; padding-bottom: 0;"><a href={link}><b>{title}</b></a></li>
+        </ul>
+    </nav>
+</article>
+
+<!--
+<a role="button" href={link}>
+    <nav>
+        <ul>
+            <li style="padding-top: 0; padding-bottom: 0;">
+                <p class="contrast" style="margin-bottom: 0;">
+                    <svg width="2em" height="2em">
+                        <use xlink:href={icon}></use>
+                    </svg>
+                </p>
+            </li>
+            <li style="padding-top: 0; padding-bottom: 0;">
+                <p class="contrast" style="margin-bottom: 0; font-size: 120%;">
+                    <b>{title}</b>
+                </p>
+            </li>
+        </ul>
+    </nav>
+</a>
+
+<article>
+    <a href="https://it.linkedin.com/in/lorenzo-era-187414243">
+        <svg width="2em" height="2em">
+            <use xlink:href="#linkedin"></use>
+        </svg>
+    </a>
+    <h4>Linkedin</h4>
+    <p>Contact me on Linkedin for job offers.</p>
+</article>
+-->
