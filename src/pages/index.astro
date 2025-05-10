@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+import HighlightsCard from "../components/HighlightsCard.astro";
+
+const textHighlight1 = "Collection of artworks created in Blender for the challenge, one render a day for 36 days."
+const textHighlight2 = "Python script that implements a visual interface for the 'game of life' using the pygame library."
+---
+
+<Layout title="Lorenzo Era">
+    <section class="body-font">
+        <div
+            class="container mx-auto flex px-5 py-24 items-center justify-center flex-col"
+        >
+            <div class="text-center lg:w-2/3 w-full">
+                <h1
+                    class="title-font sm:text-8xl text-6xl font-bold mb-4"
+                >
+                    Ciao!
+                </h1>
+                <p class="mb-8 text-2xl leading-relaxed">
+                    I'm Lorenzo, a
+                    programmer and 3D artist.
+                    I'm studying computer engineering in
+                    Cagliari.
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="body-font overflow-hidden">
+        <h1 class="text-3xl font-medium title-font mb-12 text-center">
+            Highlighted projects:
+        </h1>
+        <div class="container px-5 pt-8 pb-24 mx-auto">
+            <div class="flex flex-wrap -m-12">
+                <HighlightsCard category="3D Rendering" title="36 Days Of Type Art Challenge" text={textHighlight1} link="https://www.behance.net/gallery/224994217/36-Days-Of-Type-Challenge"/>
+                <HighlightsCard category="Coding" title="Game of Life in Pygame" text={textHighlight2} link="https://github.com/LorenzoCode3/GameOfLife-pygame"/>
+            </div>
+        </div>
+    </section>
+</Layout>

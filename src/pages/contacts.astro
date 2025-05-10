@@ -1,0 +1,29 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactCard from "../components/ContactCard.astro";
+
+const textGithub = "Check out what I'm coding and building"
+const textFacebook = "Let's stay in touch and share ideas"
+const textInstagram = "See what inspires me beyond the screen"
+const textLinkedin = "Connect with me for work, projects, or networking"
+const textBehance = "Explore my creative work and visual projects"
+const textSuperprof = "Need a hand with studying? I can help!"
+---
+
+<Layout title="Lorenzo Era">
+    <div class="container px-5 py-8 mx-auto">
+        <h1 class="title-font sm:text-4xl text-3xl">
+            Contacts
+        </h1>
+    </div>
+    <div class="container px-5 py-8 mx-auto">
+        <div class="flex flex-wrap -m-4">
+            <ContactCard title="Github" text={textGithub} link="https://github.com/LorenzoCode3" icon="github" />
+            <ContactCard title="Behance" text={textBehance} link="https://www.behance.net/lorenzoera/projects" icon="behance" />
+            <ContactCard title="Linkedin" text={textLinkedin} link="https://it.linkedin.com/in/lorenzo-era-it" icon="linkedin" />
+            <ContactCard title="Facebook" text={textFacebook} link="https://www.facebook.com/lorenzo.era.3" icon="facebook" />
+            <ContactCard title="Instagram" text={textInstagram} link="https://www.instagram.com/lorenzoera_/" icon="instagram" />
+            <ContactCard title="Superprof" text={textSuperprof} link="https://www.superprof.it/studente-ingegneria-informatica-propone-lezioni-informatica-matematica-per-medie-superiori-zona-carbonia-iglesias.html" icon="fa-solid fa-s" />
+        </div>
+    </div>
+</Layout>

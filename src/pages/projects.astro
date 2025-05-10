@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const textGameOfLife = "Python script that implements a visual interface for the 'game of life' using the pygame library."
+const text36DaysBlender = "Collection of artworks created in Blender for the challenge, one render a day for 36 days."
+const textBlenderPortfolio = "Collection of artworks created over the years."
+---
+
+<Layout title="Lorenzo Era">
+    <div class="container px-5 py-8 mx-auto">
+        <h1 class="title-font sm:text-4xl text-3xl">
+            Projects
+        </h1>
+    </div>
+    <section class="text-gray-600 body-font overflow-hidden">
+        <div class="container px-5 pt-8 pb-24 mx-auto">
+            <div class="-my-8 divide-y-2 divide-gray-100">
+                <ProjectCard category="Coding" date="2024" title="Game of Life in Pygame" text={textGameOfLife} link="https://github.com/LorenzoCode3/GameOfLife-pygame"/>
+                <ProjectCard category="3D Rendering" date="2023" title="36 Days Of Type Art Challenge" text={text36DaysBlender} link="https://www.behance.net/gallery/224994217/36-Days-Of-Type-Challenge"/>
+                <ProjectCard category="3D Rendering" date="2019" title="Blender Portolio" text={textBlenderPortfolio} link="https://www.behance.net/gallery/225063831/Blender-Portfolio"/>
+            </div>
+        </div>
+    </section>
+</Layout>
