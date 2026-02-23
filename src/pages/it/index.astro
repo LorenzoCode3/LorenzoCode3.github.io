@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HomeContent from "../../components/shared/HomeContent.astro";
+import { getLanguageFromURL } from "../../i18n/utils.ts";
+
+const lang = getLanguageFromURL(Astro.url);
+---
+
+<Layout title="Lorenzo Era">
+    <HomeContent lang={lang} />
+</Layout>

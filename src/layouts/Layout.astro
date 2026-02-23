@@ -1,35 +1,145 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { getLanguageFromURL } from "../i18n/utils.ts";
 
 interface Props {
-	title: string;
+    title: string;
 }
 
 const { title } = Astro.props;
+const lang = getLanguageFromURL(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en"><!-- data-theme="light" -->
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<!-- TAILWIND CDN -->
-		<!--<script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
-		<link rel="stylesheet" href="/styles/output.css">
-		<!-- Per le icone -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-	</head>
-	<body class="bg-gray-900 text-white">
-		
-		<Header title={title}/>
+<html lang={lang}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+        <!-- TAILWIND CDN -->
+        <!--<script src="https://unpkg.com/@tailwindcss/browser@4"></script> -->
+        <link rel="stylesheet" href="/styles/output.css">
+        <!-- Per le icone -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <style is:global>
+            /* Dark mode custom styles */
+            :root {
+                --bg-light: white;
+                --bg-dark: #111827;
+                --text-light: #111827;
+                --text-dark: white;
+                --border-light: #e5e7eb;
+                --border-dark: #1f2937;
+            }
 
-		<slot />
+            html.light {
+                background-color: var(--bg-light);
+                color: var(--text-light);
+            }
 
-		<Footer />
-	</body>
+            html.light body {
+                background-color: white;
+                color: #111827;
+            }
+
+            html.light header {
+                border-bottom-color: var(--border-light);
+            }
+
+            html.light footer {
+                border-top-color: var(--border-light);
+            }
+
+            html.light a {
+                color: #111827;
+            }
+
+            html.light a:hover {
+                color: #4b5563;
+            }
+
+            html.dark {
+                background-color: var(--bg-dark);
+                color: var(--text-dark);
+            }
+
+            html.dark body {
+                background-color: #111827;
+                color: white;
+            }
+
+            html.dark header {
+                border-bottom-color: var(--border-dark);
+            }
+
+            html.dark footer {
+                border-top-color: var(--border-dark);
+            }
+
+            html.dark a {
+                color: #e5e7eb;
+            }
+
+            html.dark a:hover {
+                color: #d1d5db;
+            }
+
+            html.dark button {
+                color: inherit;
+            }
+
+            html.dark .fa-brands,
+            html.dark .fa-solid {
+                color: inherit;
+            }
+
+            /* Title styles for both themes */
+            html.light h1,
+            html.light h2,
+            html.light h3,
+            html.light h4,
+            html.light h5,
+            html.light h6 {
+                color: #111827; /* gray-900 */
+            }
+
+            html.light .title-font {
+                color: #111827; /* gray-900 */
+            }
+
+            html.dark h1,
+            html.dark h2,
+            html.dark h3,
+            html.dark h4,
+            html.dark h5,
+            html.dark h6 {
+                color: #f9fafb; /* gray-50 */
+            }
+
+            html.dark .title-font {
+                color: #f9fafb; /* gray-50 */
+            }
+        </style>
+        <!-- Script per impostare il tema prima del render per evitare flash -->
+        <script is:inline>
+            const stored = localStorage.getItem('theme');
+            const preferred = stored === 'light' || stored === 'dark' 
+                ? stored
+                : window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            
+            document.documentElement.classList.add(preferred);
+        </script>
+    </head>
+    <body class="transition-colors duration-200">
+        
+        <Header title={title}/>
+
+        <slot />
+
+        <Footer />
+    </body>
 </html>

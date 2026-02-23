@@ -1,0 +1,114 @@
+---
+// Componente per lo switch light/dark mode
+---
+
+<button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+    <i id="theme-icon" class="fa-solid fa-sun"></i>
+</button>
+
+<style>
+    .theme-toggle-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+        border-radius: 0.375rem;
+        border: 2px solid rgba(99, 102, 241, 0.2);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.08) 0%, rgba(99, 102, 241, 0.04) 100%);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 1.125rem;
+        color: #f59e0b;
+    }
+
+    .theme-toggle-btn:hover {
+        border-color: rgba(99, 102, 241, 0.35);
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0.06) 100%);
+        transform: scale(1.08);
+    }
+
+    .theme-toggle-btn:active {
+        transform: scale(0.95);
+    }
+
+    :global(.light) .theme-toggle-btn {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+        border-color: rgba(59, 130, 246, 0.2);
+        color: #f59e0b;
+    }
+
+    :global(.light) .theme-toggle-btn:hover {
+        border-color: rgba(59, 130, 246, 0.4);
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.1) 100%);
+    }
+
+    :global(.dark) #theme-icon {
+        color: #fbbf24;
+    }
+
+    :global(.light) #theme-icon {
+        color: #f59e0b;
+    }
+</style>
+
+<script is:inline>
+    // Funzione per impostare il tema
+    function setTheme(theme) {
+        const html = document.documentElement;
+        const icon = document.getElementById('theme-icon');
+
+        if (theme === 'dark') {
+            html.classList.remove('light');
+            html.classList.add('dark');
+            if (icon) icon.className = 'fa-solid fa-moon';
+        } else {
+            html.classList.remove('dark');
+            html.classList.add('light');
+            if (icon) icon.className = 'fa-solid fa-sun';
+        }
+
+        localStorage.setItem('theme', theme);
+    }
+
+    // Funzione per ottenere il tema preferito
+    function getPreferredTheme() {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'light' || stored === 'dark') {
+            return stored;
+        }
+
+        // Controlla le preferenze di sistema
+        if (window.matchMedia('(prefers-color-scheme: light)').matches) {
+            return 'light';
+        }
+
+        return 'dark';
+    }
+
+    // Funzione per inizializzare il tema
+    function initTheme() {
+        const preferredTheme = getPreferredTheme();
+        setTheme(preferredTheme);
+
+        // Toggle theme al click
+        const button = document.getElementById('theme-toggle');
+        if (button) {
+            button.addEventListener('click', () => {
+                const html = document.documentElement;
+                const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                setTheme(newTheme);
+            });
+        }
+    }
+
+    // Esegui al caricamento
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+        initTheme();
+    }
+</script>
+

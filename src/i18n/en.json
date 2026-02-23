@@ -1,0 +1,35 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "contacts": "Contacts"
+  },
+  "home": {
+    "greeting": "Ciao!",
+    "description": "I'm Lorenzo, a programmer and 3D artist. I'm studying computer engineering in Cagliari.",
+    "highlighted": "Highlighted projects:",
+    "textHighlight1": "Collection of artworks created in Blender for the challenge, one render a day for 36 days.",
+    "textHighlight2": "Python script that implements a visual interface for the 'game of life' using the pygame library."
+  },
+  "projects": {
+    "title": "Projects",
+    "textAdventOfCode2015": "Python solutions to Advent of Code 2015 challenges.",
+    "textWaveFunctionCollapse": "JavaScript and Python implementations of the wave function collapse algorithm for procedural pattern generation, including a backtracking-enhanced version in Python.",
+    "textGameOfLife": "Python script that implements a visual interface for the 'game of life' using the pygame library.",
+    "text36DaysBlender": "Collection of artworks created in Blender for the challenge, one render a day for 36 days.",
+    "textBlenderPortfolio": "Collection of artworks created over the years.",
+    "learnMore": "Learn More"
+  },
+  "contacts": {
+    "title": "Contacts",
+    "textGithub": "Check out what I'm coding and building",
+    "textFacebook": "Let's stay in touch and share ideas",
+    "textInstagram": "See what inspires me beyond the screen",
+    "textLinkedin": "Connect with me for work, projects, or networking",
+    "textBehance": "Explore my creative work and visual projects",
+    "textSuperprof": "Need a hand with studying? I can help!"
+  },
+  "footer": {
+    "copyright": "© 2025 Lorenzo Era"
+  }
+}

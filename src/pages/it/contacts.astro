@@ -1,0 +1,11 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ContactsContent from "../../components/shared/ContactsContent.astro";
+import { getLanguageFromURL } from "../../i18n/utils.ts";
+
+const lang = getLanguageFromURL(Astro.url);
+---
+
+<Layout title="Lorenzo Era">
+    <ContactsContent lang={lang} />
+</Layout>

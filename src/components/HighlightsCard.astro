@@ -1,5 +1,9 @@
 ---
-const { category, title, text, link } = Astro.props;
+import { t, getLanguageFromURL } from "../i18n/utils.ts";
+
+const { category, title, text, link, learnMoreText } = Astro.props;
+const lang = getLanguageFromURL(Astro.url);
+const localLearnMore = learnMoreText ?? t(lang, 'projects.learnMore');
 ---
 
 <div class="p-12 md:w-1/2 flex flex-col items-start">
@@ -8,20 +12,48 @@ const { category, title, text, link } = Astro.props;
         >{category}</span
     >
     <h2
-        class="sm:text-3xl text-2xl title-font font-medium mt-4 mb-4"
+        class="sm:text-3xl text-2xl title-font font-medium mt-4 mb-4 highlights-title"
     >
         {title}
     </h2>
-    <p class="leading-relaxed text-gray-400 mb-8">
+    <p class="leading-relaxed text-gray-400 highlights-text mb-8">
         {text}
     </p>
     <div
-        class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 mt-auto w-full"
+        class="flex items-center flex-wrap pb-4 mb-4 border-b-2 border-gray-100 highlights-border mt-auto w-full"
     >
         <a class="text-indigo-500 inline-flex items-center gap-2" href={link}
-            >Learn More
+            >{localLearnMore}
             <i class="fa-solid fa-arrow-right"></i>
         </a>
         
     </div>
 </div>
+
+<style is:global>
+    /* HighlightsCard dark mode */
+    html.dark .highlights-title {
+        color: #f3f4f6; /* gray-100 */
+    }
+
+    html.dark .highlights-text {
+        color: #9ca3af; /* gray-400 */
+    }
+
+    html.dark .highlights-border {
+        border-bottom-color: #374151; /* gray-700 */
+    }
+
+    /* HighlightsCard light mode */
+    html.light .highlights-title {
+        color: #111827; /* gray-900 */
+    }
+
+    html.light .highlights-text {
+        color: #4b5563; /* gray-600 */
+    }
+
+    html.light .highlights-border {
+        border-bottom-color: #e5e7eb; /* gray-200 */
+    }
+</style>

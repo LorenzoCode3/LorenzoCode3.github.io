@@ -1,0 +1,32 @@
+---
+import HighlightsCard from "../HighlightsCard.astro";
+import { t } from "../../i18n/utils.ts";
+
+export interface Props { lang: string }
+const { lang } = Astro.props as Props;
+
+const textHighlight1 = t(lang, 'home.textHighlight1');
+const textHighlight2 = t(lang, 'home.textHighlight2');
+const greeting = t(lang, 'home.greeting');
+const description = t(lang, 'home.description');
+const highlightedTitle = t(lang, 'home.highlighted');
+---
+
+<section class="body-font">
+    <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+        <div class="text-center lg:w-2/3 w-full">
+            <h1 class="title-font sm:text-8xl text-6xl font-bold mb-4">{greeting}</h1>
+            <p class="mb-8 text-2xl leading-relaxed">{description}</p>
+        </div>
+    </div>
+</section>
+
+<section class="body-font overflow-hidden">
+    <h1 class="text-3xl font-medium title-font mb-12 text-center">{highlightedTitle}</h1>
+    <div class="container px-5 pt-8 pb-24 mx-auto">
+        <div class="flex flex-wrap -m-12">
+            <HighlightsCard category="3D Rendering" title="36 Days Of Type Art Challenge" text={textHighlight1} link="https://www.behance.net/gallery/224994217/36-Days-Of-Type-Challenge" />
+            <HighlightsCard category="Coding" title="Game of Life in Pygame" text={textHighlight2} link="https://github.com/LorenzoCode3/GameOfLife-pygame" />
+        </div>
+    </div>
+</section>

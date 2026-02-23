@@ -1,23 +1,44 @@
 ---
+import ThemeToggle from "./ThemeToggle.astro";
+import LanguageSelector from "./LanguageSelector.astro";
+import { t, getLanguageFromURL } from "../i18n/utils.ts";
+
 const { title } = Astro.props;
+
+const lang = getLanguageFromURL(Astro.url);
+const langPrefix = lang === 'it' ? '/it' : '';
+
+const navLinks = [
+    { label: t(lang, 'nav.home'), href: `${langPrefix}/` },
+    { label: t(lang, 'nav.projects'), href: `${langPrefix}/projects` },
+    { label: t(lang, 'nav.contacts'), href: `${langPrefix}/contacts` },
+];
+
+const logoLink = `${langPrefix}/`;
 ---
 
-<header class="text-gray-500 body-font">
+<header class="text-gray-500 body-font border-b border-gray-200 transition-colors duration-200">
     <div
-        class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center"
+        class="container mx-auto flex flex-wrap pt-8 px-6 pb-6 flex-col md:flex-row items-center"
     >
         <a
-            class="text-gray-200 text-4xl flex title-font font-medium items-center mb-4 md:mb-0" href="/"
+            class="text-gray-900 text-4xl flex title-font font-medium items-center mb-6 md:mb-0" href={logoLink}
         >
             <i class="fa-solid fa-fingerprint"></i>
             <span class="ml-3 text-2xl">Lorenzo Era</span>
         </a>
         <nav
-            class="md:ml-auto flex flex-wrap items-center text-base justify-center"
+            class="md:ml-auto flex flex-wrap items-center text-base justify-center gap-6 md:gap-8"
         >
-            <a href="/" class="mr-5 hover:text-gray-300">Home</a>
-            <a href="/projects" class="mr-5 hover:text-gray-300">Projects</a>
-            <a href="/contacts" class="mr-5 hover:text-gray-300">Contacts</a>
+            {navLinks.map((link) => (
+                <a href={link.href} class="text-gray-900 hover:text-gray-600 transition-colors px-3 md:px-4">
+                    {link.label}
+                </a>
+            ))}
+            <div class="pl-4 md:pl-6 border-l border-gray-200 flex items-center gap-4">
+                <LanguageSelector />
+                <ThemeToggle />
+            </div>
         </nav>
     </div>
 </header>

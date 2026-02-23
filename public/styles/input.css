@@ -1,1 +1,59 @@
 @import "tailwindcss";
+
+/* Dark mode custom styles */
+:root {
+  --bg-light: white;
+  --bg-dark: #111827; /* gray-900 */
+  --text-light: #111827;
+  --text-dark: white;
+  --border-light: #e5e7eb; /* gray-200 */
+  --border-dark: #1f2937; /* gray-800 */
+}
+
+/* Light mode */
+html.light {
+  background-color: var(--bg-light);
+  color: var(--text-light);
+}
+
+html.light body {
+  @apply bg-white text-gray-900;
+}
+
+html.light header {
+  border-bottom-color: var(--border-light);
+}
+
+html.light footer {
+  border-top-color: var(--border-light);
+}
+
+/* Dark mode */
+html.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+html.dark body {
+  @apply bg-gray-900 text-white;
+}
+
+html.dark header {
+  border-bottom-color: var(--border-dark);
+}
+
+html.dark footer {
+  border-top-color: var(--border-dark);
+}
+
+html.dark a {
+  @apply text-gray-200;
+}
+
+html.dark a:hover {
+  @apply text-gray-300;
+}
+
+html.dark button {
+  color: inherit;
+}
