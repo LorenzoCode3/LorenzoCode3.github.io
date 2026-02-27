@@ -6,27 +6,27 @@
   },
   "home": {
     "greeting": "Ciao!",
-    "description": "Sono Lorenzo, programmatore e artista 3D. Sto studiando ingegneria informatica a Cagliari.",
+    "description": "Sono Lorenzo, programmatore e artista 3D. Studio ingegneria informatica a Cagliari.",
     "highlighted": "Progetti in evidenza:",
-    "textHighlight1": "Raccolta di opere d'arte create in Blender per la sfida, un render al giorno per 36 giorni.",
+    "textHighlight1": "Raccolta di render realizzati in Blender per la challenge: un render al giorno per 36 giorni.",
     "textHighlight2": "Script Python che implementa un'interfaccia visiva per il 'gioco della vita' utilizzando la libreria pygame."
   },
   "projects": {
     "title": "Progetti",
-    "textAdventOfCode2015": "Soluzioni Python per le sfide dell'Advent of Code 2015.",
+    "textAdventOfCode2015": "Soluzioni Python per le coding challenges dell'Advent of Code 2015.",
     "textWaveFunctionCollapse": "Implementazioni JavaScript e Python dell'algoritmo wave function collapse per la generazione procedurale di pattern, inclusa una versione migliorata con backtracking in Python.",
     "textGameOfLife": "Script Python che implementa un'interfaccia visiva per il 'gioco della vita' utilizzando la libreria pygame.",
-    "text36DaysBlender": "Raccolta di opere d'arte create in Blender per la sfida, un render al giorno per 36 giorni.",
-    "textBlenderPortfolio": "Raccolta di opere d'arte create nel corso degli anni.",
+    "text36DaysBlender": "Raccolta di render realizzati in Blender per la challenge: un render al giorno per 36 giorni.",
+    "textBlenderPortfolio": "Raccolta di render realizzati in Blender nel corso degli anni.",
     "learnMore": "Scopri di più"
   },
   "contacts": {
     "title": "Contatti",
-    "textGithub": "Vedi quello che sto codificando e costruendo",
-    "textFacebook": "Rimaniamo in contatto e condividiamo idee",
-    "textInstagram": "Vedi cosa mi ispira oltre lo schermo",
-    "textLinkedin": "Connettiti con me per lavoro, progetti o networking",
-    "textBehance": "Esplora i miei lavori creativi e i miei progetti visivi",
+    "textGithub": "Scopri i progetti che sto sviluppando e il codice su cui lavoro",
+    "textFacebook": "Restiamo in contatto e scambiamoci idee",
+    "textInstagram": "Uno sguardo a ciò che mi ispira oltre lo schermo",
+    "textLinkedin": "Connettiamoci per collaborazioni, progetti e opportunità",
+    "textBehance": "Dai un'occhiata ai miei progetti creativi e visivi",
     "textSuperprof": "Hai bisogno di aiuto nello studio? Posso aiutarti!"
   },
   "footer": {
