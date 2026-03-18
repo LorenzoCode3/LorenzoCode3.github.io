@@ -143,3 +143,40 @@ const lang = getLanguageFromURL(Astro.url);
         <Footer />
     </body>
 </html>
+
+<style is:global>
+    /* Ensure a reliable minimum horizontal inset across all breakpoints */
+    :root {
+        --site-inline-gap: 1rem; /* 16px */
+    }
+
+    @media (min-width: 640px) {
+        :root { --site-inline-gap: 1.25rem; } /* 20px */
+    }
+
+    @media (min-width: 768px) {
+        :root { --site-inline-gap: 2rem; } /* 32px */
+    }
+
+    html, body {
+        box-sizing: border-box;
+        padding-left: var(--site-inline-gap);
+        padding-right: var(--site-inline-gap);
+    }
+
+    /* Neutralize component-level horizontal padding that could collapse spacing
+       so the body padding remains the minimum visible inset. Use !important
+       because Tailwind utility classes are applied via classes and we want to
+       ensure a consistent minimum on small viewports. */
+    header > div,
+    footer > div,
+    .container {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Prevent horizontal overflow from children that might be full-width */
+    html, body, #__astro {
+        overflow-x: hidden;
+    }
+</style>

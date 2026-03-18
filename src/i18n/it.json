@@ -13,6 +13,9 @@
   },
   "projects": {
     "title": "Progetti",
+    "textVueTodolist": "Una semplice app di todo list costruita con Vue.js.",
+    "textTilemapGenerationWFC": "Implementazione dell'algoritmo WFC per la generazione di tilemap procedurale.",
+    "textLeagueOfLegendsRandomizer": "Generatore di build casuali per i campioni di League of Legends.",
     "textAdventOfCode2015": "Soluzioni Python per le coding challenges dell'Advent of Code 2015.",
     "textWaveFunctionCollapse": "Implementazioni JavaScript e Python dell'algoritmo wave function collapse per la generazione procedurale di pattern, inclusa una versione migliorata con backtracking in Python.",
     "textGameOfLife": "Script Python che implementa un'interfaccia visiva per il 'gioco della vita' utilizzando la libreria pygame.",
